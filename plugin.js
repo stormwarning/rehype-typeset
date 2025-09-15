@@ -15,9 +15,11 @@ export default function rehypeTypeset() {
 	return function (tree) {
 		visit(tree, 'element', (node) => {
 			/** @todo Ignore pre or code elements. */
-			for (let child of node.children) {
-				if (child.type === 'text') {
-					child.value = replaceQuotes(child.value)
+			if (node.tagName !== 'pre' && node.tagName !== 'code') {
+				for (let child of node.children) {
+					if (child.type === 'text') {
+						child.value = replaceQuotes(child.value)
+					}
 				}
 			}
 		})
