@@ -2,7 +2,7 @@
  * @import {Root} from 'hast'
  */
 
-import { visit } from 'unist-util-visit'
+import { SKIP, visit } from 'unist-util-visit'
 
 /**
  * Process HTML content for better web typography.
@@ -14,12 +14,11 @@ export default function rehypeTypeset() {
 	 */
 	return function (tree) {
 		visit(tree, 'element', (node) => {
-			/** @todo Ignore pre or code elements. */
-			if (node.tagName !== 'pre' && node.tagName !== 'code') {
-				for (let child of node.children) {
-					if (child.type === 'text') {
-						child.value = replaceQuotes(child.value)
-					}
+			if (node.tagName === 'pre' || node.tagName === 'code') return SKIP
+
+			for (let child of node.children) {
+				if (child.type === 'text') {
+					child.value = replaceQuotes(child.value)
 				}
 			}
 		})

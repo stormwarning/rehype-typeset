@@ -14,4 +14,18 @@ describe('rehypeTypeset', async () => {
 
 		assert.equal(String(file), '<p>“Hello,” said the fox.</p>')
 	})
+
+	await it('ignores certain elements', async () => {
+		let file = await rehype()
+			.data('settings', { fragment: true })
+			.use(rehypeTypeset)
+			.process(
+				`<code><span>import rehypeTypeset from 'rehype-typeset'</span></code>`,
+			)
+
+		assert.equal(
+			String(file),
+			`<code><span>import rehypeTypeset from 'rehype-typeset'</span></code>`,
+		)
+	})
 })
