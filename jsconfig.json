@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		// Type Checking
+		"strictNullChecks": true,
+
+		// Modules
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+
+		// Emit
+		"noEmit": true,
+
+		// JavaScript Support
+		"allowJs": true,
+		"checkJs": true,
+
+		// Interop Constraints
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+
+		// Language and Environment
+		"target": "esnext"
+	},
+	"include": ["**/*.js", "**/*.mjs", "**/*.ts"],
+	"exclude": ["node_modules", "**/__tests__/*-errors.js"]
+}
