@@ -49,6 +49,59 @@ describe('rehypeTypeset', async () => {
 			assert.equal(String(file), '<p>“She’s faster than a 120′ 4″ whale.” </p>')
 		})
 	})
+
+	describe('punctuation', async () => {
+		await it('replaces a hyphen between digits with an en dash', async () => {
+			assert.equal(
+				String(await processMarkup('<p>1880 – 1912</p>')),
+				'<p>1880 – 1912</p>',
+			)
+			assert.equal(
+				String(await processMarkup('<p>1880 &ndash; 1912</p>')),
+				'<p>1880 – 1912</p>',
+			)
+			assert.equal(
+				String(await processMarkup('<p>1880 — 1912</p>')),
+				'<p>1880 – 1912</p>',
+			)
+		})
+
+		await it('replaces two hyphens with an em dash', async () => {
+			let file = await processMarkup(
+				'<p>I believe I shall -- <em>no</em>, I’m going to do it.</p>',
+			)
+
+			assert.equal(
+				String(file),
+				'<p>I believe I shall — <em>no</em>, I’m going to do it.</p>',
+			)
+		})
+
+		await it('replaces three periods with an ellipsis', async () => {
+			let file = await processMarkup('<p>Wait for it...</p>')
+
+			assert.equal(String(file), '<p>Wait for it…</p>')
+		})
+	})
+
+	describe('spaces', async () => {
+		await it('replaces full spaces around an em dash with hair spaces', async () => {
+			let file = await processMarkup(
+				'<p>The food — which was delicious — reminded me of home.</p>',
+			)
+
+			assert.equal(
+				String(file),
+				'<p>The food — which was delicious — reminded me of home.</p>',
+			)
+		})
+
+		await it('replaces full spaces around other characters with hair spaces', async () => {
+			let file = await processMarkup('<p> 4 × 4 = 16; 10 / 2 = 5;</p>')
+
+			assert.equal(String(file), '<p> 4 × 4 = 16; 10 / 2 = 5;</p>')
+		})
+	})
 })
 
 /**
