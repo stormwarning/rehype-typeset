@@ -8,6 +8,9 @@
 		"moduleResolution": "nodenext",
 
 		// Emit
+		"declaration": true,
+		"declarationMap": true,
+		"emitDeclarationOnly": true,
 		"noEmit": true,
 
 		// JavaScript Support
@@ -21,6 +24,6 @@
 		// Language and Environment
 		"target": "esnext"
 	},
-	"include": ["**/*.js", "**/*.mjs", "**/*.ts"],
-	"exclude": ["node_modules", "**/__tests__/*-errors.js"]
+	"include": ["**/*.js"],
+	"exclude": ["node_modules"]
 }
