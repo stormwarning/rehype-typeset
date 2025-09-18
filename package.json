@@ -1,6 +1,6 @@
 {
 	"name": "rehype-typeset",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"description": "Process HTML for better web typography.",
 	"keywords": [
 		"remark-plugin",

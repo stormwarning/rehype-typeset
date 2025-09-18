@@ -1,5 +1,15 @@
 # rehype-typeset
 
+## 0.1.0
+
+### Minor Changes
+
+- Add space replacement function [`16d0c1a`](https://github.com/stormwarning/rehype-typeset/commit/16d0c1a6cf67a9899d9d46b3448d798873cf68e1)
+
+### Patch Changes
+
+- Export type declarations [`9664f86`](https://github.com/stormwarning/rehype-typeset/commit/9664f86d2496cd855e1322e0fb34ad6f67cac67c)
+
 ## 0.0.3
 
 ### Patch Changes
