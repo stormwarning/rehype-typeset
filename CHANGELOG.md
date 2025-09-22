@@ -1,5 +1,11 @@
 # rehype-typeset
 
+## 0.1.1
+
+### Patch Changes
+
+- Ignore text in `script` and `style` elements [`01fe50d`](https://github.com/stormwarning/rehype-typeset/commit/01fe50d416fa25f02b0f5bf214689de9c2b477a8)
+
 ## 0.1.0
 
 ### Minor Changes
