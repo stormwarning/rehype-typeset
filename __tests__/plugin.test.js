@@ -14,13 +14,21 @@ describe('rehypeTypeset', async () => {
 		})
 
 		await it('ignores certain elements', async () => {
-			let file = await processMarkup(
+			assert.equal(
+				String(
+					await processMarkup(
+						`<code><span>import rehypeTypeset from 'rehype-typeset'</span></code>`,
+					),
+				),
 				`<code><span>import rehypeTypeset from 'rehype-typeset'</span></code>`,
 			)
-
 			assert.equal(
-				String(file),
-				`<code><span>import rehypeTypeset from 'rehype-typeset'</span></code>`,
+				String(
+					await processMarkup(
+						`<script>import rehypeTypeset from 'rehype-typeset'</script>`,
+					),
+				),
+				`<script>import rehypeTypeset from 'rehype-typeset'</script>`,
 			)
 		})
 

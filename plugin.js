@@ -29,6 +29,8 @@ const EN_DASH = '\u2013'
 const EM_DASH = '\u2014'
 const ELLIPSIS = '\u2026'
 
+const IGNORED_ELEMENTS = new Set(['script', 'style', 'pre', 'code'])
+
 /** @type {PluginOptions} */
 const DEFAULT_OPTIONS = {
 	quotes: {},
@@ -52,7 +54,7 @@ export default function rehypeTypeset(options = DEFAULT_OPTIONS) {
 	 */
 	return function (tree) {
 		visit(tree, 'element', (node) => {
-			if (node.tagName === 'pre' || node.tagName === 'code') return SKIP
+			if (IGNORED_ELEMENTS.has(node.tagName)) return SKIP
 
 			for (let child of node.children) {
 				if (child.type === 'text') {
