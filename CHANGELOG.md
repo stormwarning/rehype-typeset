@@ -1,5 +1,11 @@
 # rehype-typeset
 
+## 0.1.2
+
+### Patch Changes
+
+- Ignore text in `title` element [`55d42fa`](https://github.com/stormwarning/rehype-typeset/commit/55d42fab40865fb63c63a525300470cd48c0e599)
+
 ## 0.1.1
 
 ### Patch Changes
