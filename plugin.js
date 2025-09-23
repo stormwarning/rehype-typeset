@@ -29,7 +29,7 @@ const EN_DASH = '\u2013'
 const EM_DASH = '\u2014'
 const ELLIPSIS = '\u2026'
 
-const IGNORED_ELEMENTS = new Set(['script', 'style', 'pre', 'code'])
+const IGNORED_ELEMENTS = new Set(['title', 'script', 'style', 'pre', 'code'])
 
 /** @type {PluginOptions} */
 const DEFAULT_OPTIONS = {
